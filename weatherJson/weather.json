@@ -9,7 +9,7 @@
       },
       "nine": {
         "temp": 9,
-        "description": "02d"
+        "description": "01d"
       },
       "twelve": {
         "temp": 13,
@@ -20,11 +20,11 @@
         "description": "01d"
       },
       "eightteen": {
-        "temp": 9,
-        "description": "03n"
+        "temp": 8,
+        "description": "02n"
       },
       "twentyone": {
-        "temp": 7,
+        "temp": 6,
         "description": "04n"
       },
       "high": 13,
@@ -34,11 +34,11 @@
       "date": "4. November 2018",
       "weekDay": "Sunday",
       "six": {
-        "temp": 5,
+        "temp": 2,
         "description": "10n"
       },
       "nine": {
-        "temp": 8,
+        "temp": 7,
         "description": "10d"
       },
       "twelve": {
@@ -55,100 +55,100 @@
       },
       "twentyone": {
         "temp": 6,
-        "description": "01n"
+        "description": "02n"
       },
       "high": 13,
-      "low": 5
+      "low": 2
     },
     {
       "date": "5. November 2018",
       "weekDay": "Monday",
       "six": {
         "temp": 5,
-        "description": "04n"
+        "description": "10n"
       },
       "nine": {
         "temp": 8,
-        "description": "03d"
+        "description": "10d"
       },
       "twelve": {
-        "temp": 12,
-        "description": "02d"
+        "temp": 10,
+        "description": "10d"
       },
       "fifteen": {
-        "temp": 13,
-        "description": "01d"
+        "temp": 11,
+        "description": "04d"
       },
       "eightteen": {
         "temp": 7,
-        "description": "02n"
+        "description": "03n"
       },
       "twentyone": {
-        "temp": 5,
-        "description": "02n"
+        "temp": 4,
+        "description": "03n"
       },
-      "high": 13,
-      "low": 5
+      "high": 11,
+      "low": 4
     },
     {
       "date": "6. November 2018",
       "weekDay": "Tuesday",
       "six": {
-        "temp": 3,
-        "description": "02n"
+        "temp": 2,
+        "description": "01n"
       },
       "nine": {
         "temp": 9,
-        "description": "01d"
+        "description": "02d"
       },
       "twelve": {
         "temp": 15,
-        "description": "01d"
+        "description": "02d"
       },
       "fifteen": {
         "temp": 15,
-        "description": "03d"
+        "description": "02d"
       },
       "eightteen": {
-        "temp": 11,
-        "description": "02n"
+        "temp": 9,
+        "description": "01n"
       },
       "twentyone": {
-        "temp": 9,
-        "description": "02n"
+        "temp": 6,
+        "description": "01n"
       },
       "high": 15,
-      "low": 3
+      "low": 2
     },
     {
       "date": "7. November 2018",
       "weekDay": "Wednesday",
       "six": {
-        "temp": 4,
-        "description": "03n"
+        "temp": 2,
+        "description": "01n"
       },
       "nine": {
-        "temp": 7,
+        "temp": 9,
         "description": "10d"
       },
       "twelve": {
-        "temp": 12,
-        "description": "02d"
+        "temp": 14,
+        "description": "03d"
       },
       "fifteen": {
-        "temp": 13,
+        "temp": 15,
         "description": "02d"
       },
       "eightteen": {
-        "temp": 7,
-        "description": "03n"
+        "temp": 8,
+        "description": "01n"
       },
       "twentyone": {
-        "temp": 5,
-        "description": "02n"
+        "temp": 6,
+        "description": "03n"
       },
-      "high": 13,
-      "low": 4
+      "high": 15,
+      "low": 2
     }
   ]
 }
