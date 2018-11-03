@@ -14,7 +14,7 @@ define(["js/functions", "js/processing"], function (functions, processing) {
 
     var client_id = '65355e53d1354013b3c08529cc009bd9'; // Your client id
     var client_secret = 'e48252200e28443b97985055db86eb18'; // Your secret
-    var redirect_uri = 'http://localhost:4000/callback'// 'https://annibauer-dashboard.herokuapp.com/callback'; // Your redirect uri
+    var redirect_uri = 'https://annibauer-dashboard.herokuapp.com/callback'; // Your redirect uri
 
     /**
      * Generates a random string containing numbers and letters
