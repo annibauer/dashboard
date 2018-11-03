@@ -12,11 +12,11 @@
         "description": "01d"
       },
       "twelve": {
-        "temp": 14,
+        "temp": 13,
         "description": "01d"
       },
       "fifteen": {
-        "temp": 14,
+        "temp": 13,
         "description": "01d"
       },
       "eightteen": {
@@ -27,7 +27,7 @@
         "temp": 6,
         "description": "04n"
       },
-      "high": 14,
+      "high": 13,
       "low": 3
     },
     {
