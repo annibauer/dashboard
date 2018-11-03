@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+
+    <!-- Styles CSS -->
+    <link rel="stylesheet" type="text/css" href="/public/css/styles.css">
+
+    <!-- Socket -->
+    <script src='/socket.io/socket.io.js'></script>
+
+    <!-- Socket Recieving Code -->
+    <script type="text/javascript" src='public/script/socket_script.js'></script>
+
+    <title>Example of the Authorization Code flow with Spotify</title>
+    <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">-->
+    <style type="text/css">
+        #login,
+        #loggedin {
+            display: none;
+        }
+
+        .text-overflow {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 500px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="container-fluid centered" style="padding:10px 40px 10px 40px;">
+
+        <div class="row">
+
+            <div class="col-12" id="main_box">
+                <div class="row" id="box_title">
+                    Weather Forecast
+                </div>
+
+                <div class="row">
+
+                    <div class="col weatherBoxTop">
+
+                        <div class="row weekDay" id="weekDay1">
+
+                        </div>
+                        <div class="row date" id="date1">
+
+                        </div>
+
+                        <div class="row">
+                            <table style="margin: 0px auto 0px auto; vertical-align: middle;">
+                                <tr style="width:100%;">
+
+                                    <td class="high" id="high1">00 °C</td>
+                                    <td class="line">|</td>
+                                    <td class="low" id="low1">00 °C</td>
+
+                                </tr>
+                            </table>
+                        </div>
+
+
+                    </div>
+
+                    <div class="col weatherBoxTop">
+
+                        <div class="row weekDay" id="weekDay2">
+
+                        </div>
+                        <div class="row date" id="date2">
+
+                        </div>
+
+                        <div class="row">
+                            <table style="margin: 0px auto 0px auto; vertical-align: middle;">
+                                <tr style="width:100%;">
+
+                                    <td class="high" id="high2">00 °C</td>
+                                    <td class="line">|</td>
+                                    <td class="low" id="low2">00 °C</td>
+
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div class="col weatherBoxTop">
+
+                        <div class="row weekDay" id="weekDay3">
+
+                        </div>
+                        <div class="row date" id="date3">
+
+                        </div>
+
+                        <div class="row">
+                            <table style="margin: 0px auto 0px auto; vertical-align: middle;">
+                                <tr style="width:100%;">
+
+                                    <td class="high" id="high3">00 °C</td>
+                                    <td class="line">|</td>
+                                    <td class="low" id="low3">00 °C</td>
+
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div class="col weatherBoxTop">
+
+                        <div class="row weekDay" id="weekDay4">
+
+                        </div>
+                        <div class="row date" id="date4">
+
+                        </div>
+
+                        <div class="row">
+                            <table style="margin: 0px auto 0px auto; vertical-align: middle;">
+                                <tr style="width:100%;">
+
+                                    <td class="high" id="high4">00 °C</td>
+                                    <td class="line">|</td>
+                                    <td class="low" id="low4">00 °C</td>
+
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div class="col weatherBoxTop">
+
+                        <div class="row weekDay" id="weekDay5">
+
+                        </div>
+                        <div class="row date" id="date5">
+
+                        </div>
+
+                        <div class="row">
+                            <table style="margin: 0px auto 0px auto; vertical-align: middle;">
+                                <tr style="width:100%;">
+
+                                    <td class="high" id="high5">00 °C</td>
+                                    <td class="line">|</td>
+                                    <td class="low" id="low5">00 °C</td>
+
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+                <button class="collapsible">More Info</button>
+                <div class="content">
+                    <div class="row">
+                        <div class="col weatherBox">
+
+                            <div class="row">
+                                <div class="col">
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            6:00
+                                        </div>
+                                        <div class="col-4 temp" id="six1">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="sixdesc1" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            9:00
+                                        </div>
+                                        <div class="col-4 temp" id="nine1">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="ninedesc1" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            12:00
+                                        </div>
+                                        <div class="col-4 temp" id="twelve1">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="twelvedesc1" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            15:00
+                                        </div>
+                                        <div class="col-4 temp" id="fifteen1">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="fifteendesc1" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            18:00
+                                        </div>
+                                        <div class="col-4 temp" id="eightteen1">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="eightteendesc1" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            21:00
+                                        </div>
+                                        <div class="col-4 temp" id="twentyone1">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="twentyonedesc1" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col weatherBox">
+
+                            <div class="row">
+                                <div class="col">
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            6:00
+                                        </div>
+                                        <div class="col-4 temp" id="six2">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="sixdesc2" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            9:00
+                                        </div>
+                                        <div class="col-4 temp" id="nine2">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="ninedesc2" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            12:00
+                                        </div>
+                                        <div class="col-4 temp" id="twelve2">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="twelvedesc2" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            15:00
+                                        </div>
+                                        <div class="col-4 temp" id="fifteen2">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="fifteendesc2" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            18:00
+                                        </div>
+                                        <div class="col-4 temp" id="eightteen2">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="eightteendesc2" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            21:00
+                                        </div>
+                                        <div class="col-4 temp" id="twentyone2">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="twentyonedesc2" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col weatherBox">
+
+                            <div class="row">
+                                <div class="col">
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            6:00
+                                        </div>
+                                        <div class="col-4 temp" id="six3">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="sixdesc3" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            9:00
+                                        </div>
+                                        <div class="col-4 temp" id="nine3">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="ninedesc3" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            12:00
+                                        </div>
+                                        <div class="col-4 temp" id="twelve3">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="twelvedesc3" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            15:00
+                                        </div>
+                                        <div class="col-4 temp" id="fifteen3">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="fifteendesc3" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            18:00
+                                        </div>
+                                        <div class="col-4 temp" id="eightteen3">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="eightteendesc3" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            21:00
+                                        </div>
+                                        <div class="col-4 temp" id="twentyone3">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="twentyonedesc3" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col weatherBox">
+
+                            <div class="row">
+                                <div class="col">
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            6:00
+                                        </div>
+                                        <div class="col-4 temp" id="six4">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="sixdesc4" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            9:00
+                                        </div>
+                                        <div class="col-4 temp" id="nine4">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="ninedesc4" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            12:00
+                                        </div>
+                                        <div class="col-4 temp" id="twelve4">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="twelvedesc4" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            15:00
+                                        </div>
+                                        <div class="col-4 temp" id="fifteen4">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="fifteendesc4" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            18:00
+                                        </div>
+                                        <div class="col-4 temp" id="eightteen4">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="eightteendesc4" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            21:00
+                                        </div>
+                                        <div class="col-4 temp" id="twentyone4">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="twentyonedesc4" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col weatherBox">
+
+                            <div class="row">
+                                <div class="col">
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            6:00
+                                        </div>
+                                        <div class="col-4 temp" id="six5">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="sixdesc5" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            9:00
+                                        </div>
+                                        <div class="col-4 temp" id="nine5">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="ninedesc5" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            12:00
+                                        </div>
+                                        <div class="col-4 temp" id="twelve5">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="twelvedesc5" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            15:00
+                                        </div>
+                                        <div class="col-4 temp" id="fifteen5">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="fifteendesc5" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            18:00
+                                        </div>
+                                        <div class="col-4 temp" id="eightteen5">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="eightteendesc5" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4 time">
+                                            21:00
+                                        </div>
+                                        <div class="col-4 temp" id="twentyone5">
+                                        </div>
+                                        <div class="col-4 desc">
+                                            <img id="twentyonedesc5" class="weatherIcon" src="">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+
+
+    <div class="row">
+
+        <div class="col-12" id="main_box">
+
+        <h1>Spotify Web Playback SDK Quick Start Tutorial</h1>
+        <h2>Open your console log: <code>View > Developer > JavaScript Console</code></h2>
+      
+        <script src="https://sdk.scdn.co/spotify-player.js"></script>
+        <!-- We will insert our code here. -->
+
+        <script>
+
+            window.onSpotifyWebPlaybackSDKReady = () => {
+              const token = 'BQDQ2MxvEPCa0ISnNgUnZtCneD0gaPrt5OHBIZkndVEA57NnFAO6RIRxjOWHPqwIW8UVFS5dwTn_3d5AuylL3R2rosMXRFlvLtZgX_isW5yv3M-vU87U_J9XDUnu5WnS_nz_kWK7u24KgDMqJKnvDcNItS0ueSBm8Bchm0c';
+              const player = new Spotify.Player({
+                name: 'Web Playback SDK Quick Start Player',
+                getOAuthToken: cb => { cb(token); }
+              });
+        
+              // Error handling
+              player.addListener('initialization_error', ({ message }) => { console.error(message); });
+              player.addListener('authentication_error', ({ message }) => { console.error(message); });
+              player.addListener('account_error', ({ message }) => { console.error(message); });
+              player.addListener('playback_error', ({ message }) => { console.error(message); });
+        
+              // Playback status updates
+              player.addListener('player_state_changed', state => { console.log(state); });
+        
+              // Ready
+              player.addListener('ready', ({ device_id }) => {
+                console.log('Ready with Device ID', device_id);
+              });
+        
+              // Not Ready
+              player.addListener('not_ready', ({ device_id }) => {
+                console.log('Device ID has gone offline', device_id);
+              });
+        
+              // Connect to the player!
+              player.connect();
+            };
+          </script>
+
+    <div class="container">
+        <div id="login">
+            <h1>This is an example of the Authorization Code flow</h1>
+            <a href="/login" class="btn btn-primary">Log in with Spotify</a>
+        </div>
+        <div id="loggedin">
+            <div id="user-profile">
+            </div>
+            <div id="oauth">
+            </div>
+            <button class="btn btn-default" id="obtain-new-token">Obtain new token using the refresh token</button>
+        </div>
+    </div>
+
+
+    <script id="user-profile-template" type="text/x-handlebars-template">
+        <h1>Logged in as {{display_name}}</h1>
+        <div class="media">
+          <div class="pull-left">
+            <img class="media-object" width="150" src="{{images.0.url}}" />
+          </div>
+          <div class="media-body">
+            <dl class="dl-horizontal">
+              <dt>Display name</dt><dd class="clearfix">{{display_name}}</dd>
+              <dt>Id</dt><dd>{{id}}</dd>
+              <dt>Email</dt><dd>{{email}}</dd>
+              <dt>Spotify URI</dt><dd><a href="{{external_urls.spotify}}">{{external_urls.spotify}}</a></dd>
+              <dt>Link</dt><dd><a href="{{href}}">{{href}}</a></dd>
+              <dt>Profile Image</dt><dd class="clearfix"><a href="{{images.0.url}}">{{images.0.url}}</a></dd>
+              <dt>Country</dt><dd>{{country}}</dd>
+            </dl>
+          </div>
+        </div>
+      </script>
+
+    <script id="oauth-template" type="text/x-handlebars-template">
+        <h2>oAuth info</h2>
+        <dl class="dl-horizontal">
+          <dt>Access token</dt><dd class="text-overflow">{{access_token}}</dd>
+          <dt>Refresh token</dt><dd class="text-overflow">{{refresh_token}}</dd>
+        </dl>
+      </script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+    <script>
+        (function () {
+
+            /**
+             * Obtains parameters from the hash of the URL
+             * @return Object
+             */
+            function getHashParams() {
+                var hashParams = {};
+                var e, r = /([^&;=]+)=?([^&;]*)/g,
+                    q = window.location.hash.substring(1);
+                while (e = r.exec(q)) {
+                    hashParams[e[1]] = decodeURIComponent(e[2]);
+                }
+                return hashParams;
+                console.log(hashParams);
+            }
+
+            var userProfileSource = document.getElementById('user-profile-template').innerHTML,
+                userProfileTemplate = Handlebars.compile(userProfileSource),
+                userProfilePlaceholder = document.getElementById('user-profile');
+
+            var oauthSource = document.getElementById('oauth-template').innerHTML,
+                oauthTemplate = Handlebars.compile(oauthSource),
+                oauthPlaceholder = document.getElementById('oauth');
+
+            var params = getHashParams();
+
+            var access_token = params.access_token,
+                refresh_token = params.refresh_token,
+                error = params.error;
+
+            if (error) {
+                alert('There was an error during the authentication');
+            } else {
+                if (access_token) {
+                    // render oauth info
+                    oauthPlaceholder.innerHTML = oauthTemplate({
+                        access_token: access_token,
+                        refresh_token: refresh_token
+                    });
+
+                    $.ajax({
+                        url: 'https://api.spotify.com/v1/me',
+                        headers: {
+                            'Authorization': 'Bearer ' + access_token
+                        },
+                        success: function (response) {
+                            userProfilePlaceholder.innerHTML = userProfileTemplate(response);
+
+                            $('#login').hide();
+                            $('#loggedin').show();
+                        }
+                    });
+                } else {
+                    // render initial screen
+                    $('#login').show();
+                    $('#loggedin').hide();
+                }
+
+                document.getElementById('obtain-new-token').addEventListener('click', function () {
+                    $.ajax({
+                        url: '/refresh_token',
+                        data: {
+                            'refresh_token': refresh_token
+                        }
+                    }).done(function (data) {
+                        access_token = data.access_token;
+                        oauthPlaceholder.innerHTML = oauthTemplate({
+                            access_token: access_token,
+                            refresh_token: refresh_token
+                        });
+                    });
+                }, false);
+            }
+        })();
+    </script>
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+
+    </script>
+
+        </div>
+    </div>
+    </div>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

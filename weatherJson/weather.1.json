@@ -1,0 +1,144 @@
+{
+  "weather": [
+    {
+      "date": "date",
+      "weekDay": "week day",
+      "six": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "nine": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "twelve": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "fifteen": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "eightteen": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "twentyone": {
+        "temp": "temp",
+        "description": "desc"
+      }
+    },
+    {
+      "date": "date",
+      "weekDay": "week day",
+      "six": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "nine": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "twelve": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "fifteen": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "eightteen": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "twentyone": {
+        "temp": "temp",
+        "description": "desc"
+      }
+    },
+    {
+      "date": "date",
+      "weekDay": "week day",
+      "six": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "nine": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "twelve": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "fifteen": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "eightteen": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "twentyone": {
+        "temp": "temp",
+        "description": "desc"
+      }
+    },
+    {
+      "date": "date",
+      "weekDay": "week day",
+      "six": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "nine": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "twelve": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "fifteen": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "eightteen": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "twentyone": {
+        "temp": "temp",
+        "description": "desc"
+      }
+    },
+    {
+      "date": "date",
+      "weekDay": "week day",
+      "six": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "nine": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "twelve": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "fifteen": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "eightteen": {
+        "temp": "temp",
+        "description": "desc"
+      },
+      "twentyone": {
+        "temp": "temp",
+        "description": "desc"
+      }
+    }
+  ]
+}

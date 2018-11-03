@@ -1,0 +1,36 @@
+{
+  "requires": true,
+  "lockfileVersion": 1,
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "countrynames": "^0.1.1",
+    "edit-json-file": "^1.1.0",
+    "express": "^4.16.3",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "json-socket": "^0.3.0",
+    "path": "^0.12.7",
+    "querystring": "~0.2.0",
+    "request": "^2.85.0",
+    "requirejs": "^2.3.5",
+    "socket.io": "^2.1.0",
+    "spotify-web-api-node": "^4.0.0",
+    "tooltip.js": "^1.2.0"
+  },
+  "name": "own_project",
+  "version": "1.0.0",
+  "main": "main.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  }
+}

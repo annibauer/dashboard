@@ -1,0 +1,154 @@
+{
+  "weather": [
+    {
+      "date": "28. October 2018",
+      "weekDay": "Sunday",
+      "six": {
+        "temp": 4,
+        "description": "01d"
+      },
+      "nine": {
+        "temp": 10,
+        "description": "02d"
+      },
+      "twelve": {
+        "temp": 5,
+        "description": "10d"
+      },
+      "fifteen": {
+        "temp": 4,
+        "description": "10d"
+      },
+      "eightteen": {
+        "temp": 4,
+        "description": "10n"
+      },
+      "twentyone": {
+        "temp": 4,
+        "description": "10n"
+      },
+      "high": 10,
+      "low": 4
+    },
+    {
+      "date": "29. October 2018",
+      "weekDay": "Monday",
+      "six": {
+        "temp": 4,
+        "description": "10n"
+      },
+      "nine": {
+        "temp": 5,
+        "description": "10d"
+      },
+      "twelve": {
+        "temp": 7,
+        "description": "10d"
+      },
+      "fifteen": {
+        "temp": 7,
+        "description": "10d"
+      },
+      "eightteen": {
+        "temp": 7,
+        "description": "10n"
+      },
+      "twentyone": {
+        "temp": 7,
+        "description": "10n"
+      },
+      "high": 7,
+      "low": 4
+    },
+    {
+      "date": "30. October 2018",
+      "weekDay": "Tuesday",
+      "six": {
+        "temp": 5,
+        "description": "10n"
+      },
+      "nine": {
+        "temp": 6,
+        "description": "10d"
+      },
+      "twelve": {
+        "temp": 6,
+        "description": "10d"
+      },
+      "fifteen": {
+        "temp": 5,
+        "description": "10d"
+      },
+      "eightteen": {
+        "temp": 4,
+        "description": "10n"
+      },
+      "twentyone": {
+        "temp": 2,
+        "description": "01n"
+      },
+      "high": 6,
+      "low": 2
+    },
+    {
+      "date": "31. October 2018",
+      "weekDay": "Wednesday",
+      "six": {
+        "temp": 0,
+        "description": "02n"
+      },
+      "nine": {
+        "temp": 7,
+        "description": "01d"
+      },
+      "twelve": {
+        "temp": 11,
+        "description": "03d"
+      },
+      "fifteen": {
+        "temp": 12,
+        "description": "02d"
+      },
+      "eightteen": {
+        "temp": 9,
+        "description": "01n"
+      },
+      "twentyone": {
+        "temp": 6,
+        "description": "02n"
+      },
+      "high": 12,
+      "low": 0
+    },
+    {
+      "date": "1. November 2018",
+      "weekDay": "Thursday",
+      "six": {
+        "temp": 0,
+        "description": "02n"
+      },
+      "nine": {
+        "temp": 7,
+        "description": "02d"
+      },
+      "twelve": {
+        "temp": 13,
+        "description": "03d"
+      },
+      "fifteen": {
+        "temp": 13,
+        "description": "04d"
+      },
+      "eightteen": {
+        "temp": 8,
+        "description": "04n"
+      },
+      "twentyone": {
+        "temp": 5,
+        "description": "04n"
+      },
+      "high": 13,
+      "low": 0
+    }
+  ]
+}
