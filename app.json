@@ -1,0 +1,8 @@
+{
+  "name": "annibauer-dashboard",
+  "description": "",
+  "repository": "https://github.com/annibauer/dashboard.git",
+  "logo": "http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png",
+  "keywords": ["node", "express", "dashboard"],
+  "image": "public/images/home-icon"
+}
