@@ -1,40 +1,10 @@
 {
   "weather": [
     {
-      "date": "3. November 2018",
-      "weekDay": "Saturday",
-      "six": {
-        "temp": 3,
-        "description": "02n"
-      },
-      "nine": {
-        "temp": 10,
-        "description": "01d"
-      },
-      "twelve": {
-        "temp": 13,
-        "description": "01d"
-      },
-      "fifteen": {
-        "temp": 13,
-        "description": "01d"
-      },
-      "eightteen": {
-        "temp": 8,
-        "description": "02n"
-      },
-      "twentyone": {
-        "temp": 6,
-        "description": "04n"
-      },
-      "high": 13,
-      "low": 3
-    },
-    {
       "date": "4. November 2018",
       "weekDay": "Sunday",
       "six": {
-        "temp": 2,
+        "temp": 3,
         "description": "10n"
       },
       "nine": {
@@ -58,7 +28,7 @@
         "description": "02n"
       },
       "high": 13,
-      "low": 2
+      "low": 3
     },
     {
       "date": "5. November 2018",
@@ -149,6 +119,36 @@
       },
       "high": 15,
       "low": 2
+    },
+    {
+      "date": "8. November 2018",
+      "weekDay": "Thursday",
+      "six": {
+        "temp": 7,
+        "description": "04n"
+      },
+      "nine": {
+        "temp": 9,
+        "description": "10d"
+      },
+      "twelve": {
+        "temp": 13,
+        "description": "04d"
+      },
+      "fifteen": {
+        "temp": 13,
+        "description": "03d"
+      },
+      "eightteen": {
+        "temp": 9,
+        "description": "04n"
+      },
+      "twentyone": {
+        "temp": 8,
+        "description": "10n"
+      },
+      "high": 13,
+      "low": 7
     }
   ]
 }

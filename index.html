@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-
+ 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -45,11 +45,27 @@
     </style>
 
 
+
+
 </head>
 
 <body>
 
-    <div class="container-fluid centered" style="padding:10px 40px 0px 40px;">
+    <div class="container-fluid centered" id="loginStart" style=" display: flex;
+    justify-content: center">
+        <div class="row">
+            <div class="col-12 centered" id="main_box" style="width:300px; height:200px; margin-top:300px;">
+                <p style="font-size:15px; text-align:center; padding-top:40px;padding-bottom:15px;">LOG INTO YOUR SPOTIFY ACCOUNT</p>
+                <div id="login" style="display:flex; justify-content: center;">
+                <a href="/login" class="btn btn-primary" >Log in</a>
+            </div>
+            </div>
+        </div>
+        
+    </div>
+        
+
+    <div class="container-fluid centered" id="infoBody" style="padding:10px 40px 0px 40px;">
 
         <!-- Weather Box -->
         <div class="row">
@@ -569,8 +585,6 @@
 
             <div class="col-4" id="main_box">
 
-                
-
                     <div class="row">
                         <div class="col-6" id="box_title">
                             Top Played Tracks
@@ -583,9 +597,6 @@
                     </div>
 
                     <div class="container">
-                    <div id="login">
-                        <a href="/login" class="btn btn-primary">Log in with Spotify</a>
-                    </div>
 
                     <!-- The Modal -->
                     <div id="myModal" class="modal">
@@ -593,6 +604,7 @@
                         <!-- Modal content -->
                         <div class="modal-content">
                             <span class="close" style="visibility: hidden;">&times;</span>
+                            <button id="logout" onclick = "logoutFunction()"> LOG OUT </button>
                             <div id="loggedin">
                                 <div id="user-profile">
                                 </div>
@@ -746,6 +758,8 @@
                                         $('#myBtn').show();
                                         $('#login').hide();
                                         $('#loggedin').show();
+                                        document.getElementById("loginStart").style.display = "none";
+                                        document.getElementById("infoBody").style.display = "block";
 
                                     }
                                 });
@@ -781,6 +795,11 @@
 
     <!-- Collapsible/ Modal -->
     <script>
+        document.getElementById("infoBody").style.display = "none";
+
+        logoutFunction =  function(){
+            location.replace("https://accounts.spotify.com/logout");
+        };
 
         // COLLAPSIBLE
         var coll = document.getElementsByClassName("collapsible");
@@ -821,6 +840,8 @@
 
     </script>
     <!-- Collapsible/ Modal -->
+
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
