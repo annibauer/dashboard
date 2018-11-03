@@ -9,6 +9,8 @@ define(["js/functions", "js/processing"], function (functions, processing) {
     var request = require('request'); // "Request" library
     var querystring = require('querystring');
     var cookieParser = require('cookie-parser');
+    
+    var top_tracks = new Array;
 
     var client_id = '65355e53d1354013b3c08529cc009bd9'; // Your client id
     var client_secret = 'e48252200e28443b97985055db86eb18'; // Your secret
@@ -19,9 +21,6 @@ define(["js/functions", "js/processing"], function (functions, processing) {
      * @param  {number} length The length of the string
      * @return {string} The generated string
      */
-
-
-
 
     return {
 
@@ -160,6 +159,45 @@ define(["js/functions", "js/processing"], function (functions, processing) {
             io.emit('twentyonedesc4', { data: weather[3].twentyone.description });
             io.emit('twentyonedesc5', { data: weather[4].twentyone.description });
 
+            if (top_tracks.length > 1) {
+
+                // top tracks 
+                io.emit('track1', { data: top_tracks[0].track });
+                io.emit('track2', { data: top_tracks[1].track });
+                io.emit('track3', { data: top_tracks[2].track });
+                io.emit('track4', { data: top_tracks[3].track });
+                io.emit('track5', { data: top_tracks[4].track });
+                io.emit('track6', { data: top_tracks[5].track });
+                io.emit('track7', { data: top_tracks[6].track });
+                io.emit('track8', { data: top_tracks[7].track });
+                io.emit('track9', { data: top_tracks[8].track });
+                io.emit('track10', { data: top_tracks[9].track });
+
+                // top artists 
+                io.emit('artist1', { data: top_tracks[0].artist });
+                io.emit('artist2', { data: top_tracks[1].artist });
+                io.emit('artist3', { data: top_tracks[2].artist });
+                io.emit('artist4', { data: top_tracks[3].artist });
+                io.emit('artist5', { data: top_tracks[4].artist });
+                io.emit('artist6', { data: top_tracks[5].artist });
+                io.emit('artist7', { data: top_tracks[6].artist });
+                io.emit('artist8', { data: top_tracks[7].artist });
+                io.emit('artist9', { data: top_tracks[8].artist });
+                io.emit('artist10', { data: top_tracks[9].artist });
+
+                // album art 
+                io.emit('art1', { data: top_tracks[0].art });
+                io.emit('art2', { data: top_tracks[1].art });
+                io.emit('art3', { data: top_tracks[2].art });
+                io.emit('art4', { data: top_tracks[3].art });
+                io.emit('art5', { data: top_tracks[4].art });
+                io.emit('art6', { data: top_tracks[5].art });
+                io.emit('art7', { data: top_tracks[6].art });
+                io.emit('art8', { data: top_tracks[7].art });
+                io.emit('art9', { data: top_tracks[8].art });
+                io.emit('art10', { data: top_tracks[9].art });
+            }
+           
 
         },
 
@@ -192,7 +230,7 @@ define(["js/functions", "js/processing"], function (functions, processing) {
                 res.cookie(stateKey, state);
 
                 // your application requests authorization
-                var scope = 'user-read-private user-read-email';
+                var scope = 'user-read-private user-read-email user-read-playback-state user-top-read';
                 res.redirect('https://accounts.spotify.com/authorize?' +
                     querystring.stringify({
                         response_type: 'code',
@@ -250,6 +288,19 @@ define(["js/functions", "js/processing"], function (functions, processing) {
                                 console.log(body);
                             });
 
+                            var options2 = {
+                                url: 'https://api.spotify.com/v1/me/top/tracks',
+                                headers: { 'Authorization': 'Bearer ' + access_token },
+                                json: true
+                            };
+
+                            request.get(options2, function (error, response, body) {
+                                body.items.forEach(function(item){
+                                    top_tracks.push({track: item.name, artist: item.artists[0].name, art: item.album.images[0].url});
+                                });
+                            });
+
+
                             // we can also pass the token to the browser to make requests from there
                             res.redirect('/#' +
                                 querystring.stringify({
@@ -263,6 +314,89 @@ define(["js/functions", "js/processing"], function (functions, processing) {
                                 }));
                         }
                     });
+
+                    // new part!!
+                    /*var SpotifyWebApi = require('spotify-web-api-node');
+
+                    var spotifyApi = new SpotifyWebApi({
+                    clientId: '65355e53d1354013b3c08529cc009bd9' ,
+                    clientSecret: 'e48252200e28443b97985055db86eb18'
+                    });
+
+                    // Retrieve an access token
+                    spotifyApi
+                    .clientCredentialsGrant()
+                    .then(function(data) {
+                        // Set the access token on the API object so that it's used in all future requests
+                        spotifyApi.setAccessToken(data.body['access_token']);
+
+                        // Get the most popular tracks by David Bowie in Great Britain
+                        return spotifyApi.getArtistTopTracks('0oSGxfWSnnOXhD2fKuz2Gy', 'GB');
+                    })
+                    .then(function(data) {
+                        console.log('The most popular tracks for David Bowie is..');
+                        data.body.tracks.forEach(function(track, index) {
+                        console.log(
+                            index +
+                            1 +
+                            '. ' +
+                            track.name +
+                            ' (popularity is ' +
+                            track.popularity +
+                            ')'
+                        );
+                        });
+                    })
+                    .catch(function(err) {
+                        console.log('Unfortunately, something has gone wrong.', err.message);
+                    });
+
+                    var artistId = '0qeei9KQnptjwb8MgkqEoy';
+                    
+                    spotifyApi
+                    .clientCredentialsGrant()
+                    .then(function(data) {
+                        // Set the access token on the API object so that it's used in all future requests
+                        spotifyApi.setAccessToken(data.body['access_token']);
+
+                        // Get the most popular tracks by David Bowie in Great Britain
+                        return spotifyApi.getArtistRelatedArtists(artistId);
+                    })
+                    .then(function(data) {
+                          if (data.body.artists.length) {
+                            data.body.artists.forEach(function(artist) {
+                                console.log(
+                                   artist.name
+                                );});                  
+                            console.log('The most similar one is ' + data.body.artists[0].name);
+                          } else {
+                            console.log("I didn't find any similar artists.. Sorry.");
+                          }
+                        },
+                        function(err) {
+                          console.log('Something went wrong..', err.message);
+                        }
+                      );
+
+                      spotifyApi
+                      .clientCredentialsGrant()
+                      .then(function(data) {
+                          // Set the access token on the API object so that it's used in all future requests
+                          spotifyApi.setAccessToken(data.body['access_token']);
+  
+                          // Get the most popular tracks by David Bowie in Great Britain
+                          return spotifyApi.getMyTopTracks();
+                      })
+                      .then(function(data) {
+                            console.log(data);
+                          },
+                          function(err) {
+                            console.log('Something went wrong..', err.message);
+                          }
+                        );
+  
+
+                    // new part end    */        
                 }
             });
 
@@ -290,29 +424,6 @@ define(["js/functions", "js/processing"], function (functions, processing) {
                 });
             });
 
-            app.get('/refresh_token', function (req, res) {
-
-                // requesting access token from refresh token
-                var refresh_token = req.query.refresh_token;
-                var authOptions = {
-                    url: 'https://accounts.spotify.com/api/token',
-                    headers: { 'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64')) },
-                    form: {
-                        grant_type: 'refresh_token',
-                        refresh_token: refresh_token
-                    },
-                    json: true
-                };
-
-                request.post(authOptions, function (error, response, body) {
-                    if (!error && response.statusCode === 200) {
-                        var access_token = body.access_token;
-                        res.send({
-                            'access_token': access_token
-                        });
-                    }
-                });
-            });
 
             //including index.html file
             app.get('/', function (req, res, next) {
@@ -328,15 +439,12 @@ define(["js/functions", "js/processing"], function (functions, processing) {
                     '&redirect_uri=' + encodeURIComponent(redirect_uri));
             });
 
-
-
             // Emit welcome message on connection
             io.on('connection', function (socket) {
                 // Use socket to communicate with this particular client only, sending it it's own id
                 socket.emit('start', { message: 'USER COUNTER', id: socket.id });
                 socket.on('i am client', console.log);
             });
-
 
             server.listen(port, function () {
                 console.log('Server started on Port ' + port + '...');

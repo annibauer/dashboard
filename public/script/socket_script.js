@@ -473,6 +473,163 @@ socket.on('twentyonedesc5', function(data) {
         document.getElementById("twentyonedesc5").src = "http://openweathermap.org/img/w/" + data.data +".png"
 });
 
+// TOP TRACKS
+
+socket.on('track1', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("track1").innerHTML = data.data;
+});
+
+socket.on('track2', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("track2").innerHTML = data.data;
+});
+
+socket.on('track3', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("track3").innerHTML = data.data;
+});
+
+socket.on('track4', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("track4").innerHTML = data.data;
+});
+
+socket.on('track5', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("track5").innerHTML = data.data;
+});
+
+socket.on('track6', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("track6").innerHTML = data.data;
+});
+
+socket.on('track7', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("track7").innerHTML = data.data;
+});
+
+socket.on('track8', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("track8").innerHTML = data.data;
+});
+
+socket.on('track9', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("track9").innerHTML = data.data;
+});
+
+socket.on('track10', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("track10").innerHTML = data.data;
+});
+
+// TOP ARTISTS
+
+socket.on('artist1', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("artist1").innerHTML = data.data;
+});
+
+socket.on('artist2', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("artist2").innerHTML = data.data;
+});
+
+socket.on('artist3', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("artist3").innerHTML = data.data;
+});
+
+socket.on('artist4', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("artist4").innerHTML = data.data;
+});
+
+socket.on('artist5', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("artist5").innerHTML = data.data;
+});
+
+socket.on('artist6', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("artist6").innerHTML = data.data;
+});
+
+socket.on('artist7', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("artist7").innerHTML = data.data;
+});
+
+socket.on('artist8', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("artist8").innerHTML = data.data;
+});
+
+socket.on('artist9', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("artist9").innerHTML = data.data;
+});
+
+socket.on('artist10', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("artist10").innerHTML = data.data;
+});
+
+// TOP ART
+
+socket.on('art1', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("art1").src = data.data;
+});
+
+socket.on('art2', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("art2").src = data.data;
+});
+
+socket.on('art3', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("art3").src = data.data;
+});
+
+socket.on('art4', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("art4").src = data.data;
+});
+
+socket.on('art5', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("art5").src = data.data;
+});
+
+socket.on('art6', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("art6").src = data.data;
+});
+
+socket.on('art7', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("art7").src = data.data;
+});
+
+socket.on('art8', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("art8").src = data.data;
+});
+
+socket.on('art9', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("art9").src = data.data;
+});
+
+socket.on('art10', function(data) {
+    var text = document.createTextNode(data.data);
+        document.getElementById("art10").src = data.data;
+});
+
+
 
 
 var observer = new MutationObserver(function(mutations) {
@@ -501,5 +658,3 @@ function addMessage(message) {
     el.appendChild(text);
     messages.appendChild(el);
 }
-
-
