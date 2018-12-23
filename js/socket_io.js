@@ -295,6 +295,7 @@ define(["js/functions", "js/processing"], function (functions, processing) {
                             };
 
                             request.get(options2, function (error, response, body) {
+                                top_tracks = [];
                                 body.items.forEach(function(item){
                                     top_tracks.push({track: item.name, artist: item.artists[0].name, art: item.album.images[0].url});
                                 });
